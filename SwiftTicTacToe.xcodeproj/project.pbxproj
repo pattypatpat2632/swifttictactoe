@@ -13,6 +13,7 @@
 		ECA14F0624E1CA5B007553CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA14F0424E1CA5B007553CC /* Main.storyboard */; };
 		ECA14F0824E1CA5E007553CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA14F0724E1CA5E007553CC /* Assets.xcassets */; };
 		ECA14F0B24E1CA5E007553CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA14F0924E1CA5E007553CC /* LaunchScreen.storyboard */; };
+		ECA14F1324E1D368007553CC /* TicTacToeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA14F1224E1D368007553CC /* TicTacToeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		ECA14F0724E1CA5E007553CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECA14F0A24E1CA5E007553CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECA14F0C24E1CA5E007553CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECA14F1224E1D368007553CC /* TicTacToeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				ECA14EFE24E1CA5B007553CC /* AppDelegate.swift */,
 				ECA14F0024E1CA5B007553CC /* SceneDelegate.swift */,
 				ECA14F0224E1CA5B007553CC /* ViewController.swift */,
+				ECA14F1224E1D368007553CC /* TicTacToeCell.swift */,
 				ECA14F0424E1CA5B007553CC /* Main.storyboard */,
 				ECA14F0724E1CA5E007553CC /* Assets.xcassets */,
 				ECA14F0924E1CA5E007553CC /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				ECA14F0324E1CA5B007553CC /* ViewController.swift in Sources */,
 				ECA14EFF24E1CA5B007553CC /* AppDelegate.swift in Sources */,
+				ECA14F1324E1D368007553CC /* TicTacToeCell.swift in Sources */,
 				ECA14F0124E1CA5B007553CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,24 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tic Tac Toe View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TicTacToeViewController" customModule="SwiftTicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-2O-mje">
+                                <rect key="frame" x="0.0" y="235.5" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KM-ku-MjY">
+                                <rect key="frame" x="187.5" y="649.5" width="39" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4JJ-vX-kLr"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GMP-9x-9Ke">
+                                <rect key="frame" x="20.5" y="266.5" width="373" height="373"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GMP-9x-9Ke" secondAttribute="height" multiplier="1:1" id="pYV-6I-Aku"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="laR-CW-v7l">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TicTacToeCell" id="R2f-KQ-12g" customClass="TicTacToeCell" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xqu-df-Z5t">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hj-B3-cS2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <state key="normal" title="-"/>
+                                                    <connections>
+                                                        <action selector="didTapCellButton:" destination="c6o-4P-cgq" eventType="touchUpInside" id="f2m-af-ljv"/>
+                                                        <action selector="didTapCellButton:" destination="R2f-KQ-12g" eventType="touchUpInside" id="g0E-w9-Ipx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="centerY" secondItem="Xqu-df-Z5t" secondAttribute="centerY" id="LhV-XM-Vur"/>
+                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="width" secondItem="Xqu-df-Z5t" secondAttribute="width" id="M9x-8N-QF8"/>
+                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="height" secondItem="Xqu-df-Z5t" secondAttribute="height" id="iSC-nI-I3d"/>
+                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="centerX" secondItem="Xqu-df-Z5t" secondAttribute="centerX" id="rwN-q6-dj8"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="6Hj-B3-cS2" id="ykd-yy-DxT"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qgV-2O-mje" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4Ql-gl-aob"/>
+                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="bottom" secondItem="0KM-ku-MjY" secondAttribute="top" constant="-10" id="62i-Fp-gfq"/>
+                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7Uk-GE-dve"/>
+                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XWN-tU-rtf"/>
+                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Zyd-vc-895"/>
+                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="top" secondItem="qgV-2O-mje" secondAttribute="bottom" constant="10" id="m1q-fr-ahf"/>
+                            <constraint firstItem="0KM-ku-MjY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nMv-ZQ-VQz"/>
+                            <constraint firstItem="qgV-2O-mje" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zut-PN-JJe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="resetButton" destination="0KM-ku-MjY" id="qSg-Zj-2JQ"/>
+                        <outlet property="ticTacToeView" destination="GMP-9x-9Ke" id="Jck-89-Knn"/>
+                        <outlet property="victoryLabel" destination="qgV-2O-mje" id="HbT-nh-Ngw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="c6o-4P-cgq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="113" y="9"/>
         </scene>
     </scenes>
 </document>
