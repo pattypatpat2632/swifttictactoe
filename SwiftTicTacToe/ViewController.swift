@@ -26,7 +26,7 @@ final class TicTacToeViewController: UIViewController {
         [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8],
-        [1, 4, 8],
+        [0, 4, 8],
         [2, 4, 6]
     ]
     
@@ -36,15 +36,25 @@ final class TicTacToeViewController: UIViewController {
         ticTacToeView.dataSource = self
     }
     @IBAction func didTapReset(_ sender: UIButton) {
+        victoryLabel.text = "Tic-Tac-Toe"
         resetButton.isHidden = true
         selectedSquares.removeAll()
         isPlayerOneTurn = true
+        ticTacToeView.visibleCells.compactMap{(cell) -> TicTacToeCell? in
+            let cell = cell as? TicTacToeCell
+            return cell
+        }.forEach{$0.reset()}
+        ticTacToeView.reloadData()
     }
 }
 
 extension TicTacToeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let 
+        let totalWidth = collectionView.frame.width
+        let totalHeight = collectionView.frame.height
+        let width = (totalWidth/3.9)
+        let height = (totalHeight/3.9)
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -85,6 +95,9 @@ extension TicTacToeViewController: UICollectionViewDelegate, UICollectionViewDat
         selectedSquares[squareNumber] = playerNumber
         if isVictoryFor(playerNumber: playerNumber) {
             showVictoryFor(playerNumber: playerNumber)
+        } else if isDraw() {
+            victoryLabel.text = "Tie game!"
+            resetButton.isHidden = false
         }
     }
     
@@ -111,6 +124,10 @@ extension TicTacToeViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             player2Wins += 1
         }
+    }
+    
+    private func isDraw() -> Bool {
+        return selectedSquares.count == 9
     }
 }
 

@@ -24,5 +24,12 @@ final class TicTacToeCell: UICollectionViewCell {
         self.button.isUserInteractionEnabled = false
     }
     
+    func reset() {
+        squareNumber = 0
+        didSelect = {_,_ in}
+        self.button.setTitle("-", for: .normal)
+        self.button.isUserInteractionEnabled = true
+    }
+    
 }
 

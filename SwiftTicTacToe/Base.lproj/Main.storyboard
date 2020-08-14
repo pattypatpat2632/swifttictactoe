@@ -33,7 +33,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GMP-9x-9Ke">
                                 <rect key="frame" x="20.5" y="266.5" width="373" height="373"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GMP-9x-9Ke" secondAttribute="height" multiplier="1:1" id="pYV-6I-Aku"/>
                                 </constraints>
