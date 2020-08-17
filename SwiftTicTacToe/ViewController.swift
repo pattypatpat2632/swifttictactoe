@@ -51,19 +51,19 @@ final class TicTacToeViewController: UIViewController {
         assignAllButtons()
     }
     
+    private func assignAllButtons() {
+        for (index, button) in allButtons.enumerated() {
+            button.index = index
+            button.didSelect = didSelect(squareNumber:)
+        }
+    }
+    
     @IBAction func didTapReset(_ sender: UIButton) {
         victoryLabel.text = "Tic-Tac-Toe"
         resetButton.isHidden = true
         selectedSquares.removeAll()
         isPlayerOneTurn = true
         allButtons.forEach{$0.reset()}
-    }
-    
-    private func assignAllButtons() {
-        for (index, button) in allButtons.enumerated() {
-            button.index = index
-            button.didSelect = didSelect(squareNumber:)
-        }
     }
 }
 
