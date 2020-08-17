@@ -11,6 +11,7 @@ import UIKit
 final class TicTacToeButton: UIView {
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet var selectedImageView: UIImageView!
     @IBOutlet var button: UIButton!
     
     var didSelect: (Int) -> UIImage? = {_ in return nil}
@@ -40,13 +41,12 @@ final class TicTacToeButton: UIView {
             assertionFailure("TicTacToeButton should have index assigned")
             return
         }
-        let image = didSelect(index)
-        button.setBackgroundImage(image, for: .normal)
+        selectedImageView.image = didSelect(index)
         button.isUserInteractionEnabled = false
     }
     
     func reset() {
-        button.setBackgroundImage(nil, for: .normal)
+        selectedImageView.image = nil
         button.isUserInteractionEnabled = true
     }
     

@@ -60,11 +60,9 @@ final class TicTacToeViewController: UIViewController {
     }
     
     private func assignAllButtons() {
-        var index = 0
-        for button in allButtons {
+        for (index, button) in allButtons.enumerated() {
             button.index = index
             button.didSelect = didSelect(squareNumber:)
-            index += 1
         }
     }
 }
@@ -102,8 +100,6 @@ extension TicTacToeViewController {
                     if count == 3 {
                         return true
                     }
-                } else {
-                    break
                 }
             }
         }
