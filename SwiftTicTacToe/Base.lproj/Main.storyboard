@@ -4,7 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,14 +16,181 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-2O-mje">
-                                <rect key="frame" x="0.0" y="235.5" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tic-Tac-Toe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-2O-mje">
+                                <rect key="frame" x="0.0" y="321.5" width="414" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ew5-34-wis">
+                                <rect key="frame" x="116" y="362" width="182" height="182"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V57-EE-XLQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52s-0t-pNf" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="Xjg-eO-QFQ"/>
+                                                    <constraint firstAttribute="height" constant="60" id="klF-ti-A2O"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oV5-nm-FlV">
+                                                <rect key="frame" x="60" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="IKi-oy-IWK"/>
+                                                    <constraint firstAttribute="width" constant="1" id="ucD-ww-Gtv"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lr1-H1-B8a" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="61" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="ZyT-MI-R0t"/>
+                                                    <constraint firstAttribute="width" constant="60" id="pQc-xm-qoc"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-dX-Wzp">
+                                                <rect key="frame" x="121" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="2ho-St-kRX"/>
+                                                    <constraint firstAttribute="width" constant="1" id="kY3-Oo-7oY"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBB-yl-vE4" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="YkV-DW-kPH"/>
+                                                    <constraint firstAttribute="width" constant="60" id="eo3-Q3-m31"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Wmg-Ks-ciJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lco-PA-Pfh">
+                                        <rect key="frame" x="0.0" y="60" width="182" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="XQ3-YL-EUx"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bhU-Na-rlz">
+                                        <rect key="frame" x="0.0" y="61" width="182" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-xt-Oez" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="agF-FE-f4O"/>
+                                                    <constraint firstAttribute="height" constant="60" id="wIA-xr-NDz"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsd-co-uia">
+                                                <rect key="frame" x="60" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="6ws-xj-CdR"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Nc3-ef-ree"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snB-mu-P5P" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="61" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="8gf-ip-clH"/>
+                                                    <constraint firstAttribute="width" constant="60" id="MU8-FJ-FcQ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GId-af-P3s">
+                                                <rect key="frame" x="121" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="fgi-3e-0fR"/>
+                                                    <constraint firstAttribute="width" constant="1" id="l5z-IM-k0h"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ef3-Sz-QvX" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Vqv-F4-Rqe"/>
+                                                    <constraint firstAttribute="width" constant="60" id="e57-3T-hrA"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="gv1-Sm-gcL"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-qO-Oqz">
+                                        <rect key="frame" x="0.0" y="121" width="182" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="1XU-Rn-D37"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u0H-72-MuS">
+                                        <rect key="frame" x="0.0" y="122" width="182" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpM-gS-Obd" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="1Hp-dq-9y9"/>
+                                                    <constraint firstAttribute="width" constant="60" id="L5f-D1-bh5"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-p8-Zxt">
+                                                <rect key="frame" x="60" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="dLt-NY-nLN"/>
+                                                    <constraint firstAttribute="height" constant="60" id="vMs-iR-ArV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-fk-HzN" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="61" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="GVf-jk-7dn"/>
+                                                    <constraint firstAttribute="width" constant="60" id="YBE-Wo-8zd"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vG9-RP-ukX">
+                                                <rect key="frame" x="121" y="0.0" width="1" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="DDs-aA-iYi"/>
+                                                    <constraint firstAttribute="width" constant="1" id="tB9-wo-B5q"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-Up-0Cf" customClass="TicTacToeButton" customModule="SwiftTicTacToe" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="BIl-cf-PzV"/>
+                                                    <constraint firstAttribute="width" constant="60" id="gGS-ju-bnZ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="MvJ-sQ-PxG"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lco-PA-Pfh" firstAttribute="width" secondItem="Ew5-34-wis" secondAttribute="width" id="XRT-jF-g3j"/>
+                                    <constraint firstAttribute="width" constant="182" id="ffh-nx-nOF"/>
+                                </constraints>
+                            </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KM-ku-MjY">
-                                <rect key="frame" x="187.5" y="649.5" width="39" height="30"/>
+                                <rect key="frame" x="187.5" y="564" width="39" height="30"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -31,70 +198,77 @@
                                     <action selector="didTapReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4JJ-vX-kLr"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GMP-9x-9Ke">
-                                <rect key="frame" x="20.5" y="266.5" width="373" height="373"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="GMP-9x-9Ke" secondAttribute="height" multiplier="1:1" id="pYV-6I-Aku"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="laR-CW-v7l">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TicTacToeCell" id="R2f-KQ-12g" customClass="TicTacToeCell" customModule="SwiftTicTacToe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xqu-df-Z5t">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hj-B3-cS2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <state key="normal" title="-"/>
-                                                    <connections>
-                                                        <action selector="didTapCellButton:" destination="c6o-4P-cgq" eventType="touchUpInside" id="f2m-af-ljv"/>
-                                                        <action selector="didTapCellButton:" destination="R2f-KQ-12g" eventType="touchUpInside" id="g0E-w9-Ipx"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="centerY" secondItem="Xqu-df-Z5t" secondAttribute="centerY" id="LhV-XM-Vur"/>
-                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="width" secondItem="Xqu-df-Z5t" secondAttribute="width" id="M9x-8N-QF8"/>
-                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="height" secondItem="Xqu-df-Z5t" secondAttribute="height" id="iSC-nI-I3d"/>
-                                                <constraint firstItem="6Hj-B3-cS2" firstAttribute="centerX" secondItem="Xqu-df-Z5t" secondAttribute="centerX" id="rwN-q6-dj8"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="button" destination="6Hj-B3-cS2" id="ykd-yy-DxT"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Jfr-O9-8Rn">
+                                <rect key="frame" x="51" y="639" width="312" height="49"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GJl-jz-9KY">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYER 1 WINS:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4i-73-PcD">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X1-ka-Ogr">
+                                                <rect key="frame" x="57.5" y="28.5" width="10.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KIO-As-5VO">
+                                        <rect key="frame" x="185" y="0.0" width="127" height="49"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYER 2 WINS:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbx-ou-pcS">
+                                                <rect key="frame" x="0.0" y="0.0" width="127" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE9-4b-FQu">
+                                                <rect key="frame" x="58.5" y="28.5" width="10.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Jfr-O9-8Rn" firstAttribute="centerX" secondItem="0KM-ku-MjY" secondAttribute="centerX" id="0LR-de-AJL"/>
                             <constraint firstItem="qgV-2O-mje" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4Ql-gl-aob"/>
-                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="bottom" secondItem="0KM-ku-MjY" secondAttribute="top" constant="-10" id="62i-Fp-gfq"/>
-                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7Uk-GE-dve"/>
-                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="XWN-tU-rtf"/>
-                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Zyd-vc-895"/>
-                            <constraint firstItem="GMP-9x-9Ke" firstAttribute="top" secondItem="qgV-2O-mje" secondAttribute="bottom" constant="10" id="m1q-fr-ahf"/>
+                            <constraint firstItem="0KM-ku-MjY" firstAttribute="top" secondItem="Ew5-34-wis" secondAttribute="bottom" constant="20" id="Vr9-Bt-i7G"/>
+                            <constraint firstItem="Ew5-34-wis" firstAttribute="top" secondItem="qgV-2O-mje" secondAttribute="bottom" constant="20" id="dal-DV-mnc"/>
+                            <constraint firstItem="Jfr-O9-8Rn" firstAttribute="top" secondItem="0KM-ku-MjY" secondAttribute="bottom" constant="45" id="eao-rK-llA"/>
                             <constraint firstItem="0KM-ku-MjY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nMv-ZQ-VQz"/>
+                            <constraint firstItem="Ew5-34-wis" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ury-zB-dqQ"/>
+                            <constraint firstItem="Ew5-34-wis" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xK8-ev-JUW"/>
                             <constraint firstItem="qgV-2O-mje" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zut-PN-JJe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="button0" destination="52s-0t-pNf" id="vjT-re-Cr8"/>
+                        <outlet property="button1" destination="lr1-H1-B8a" id="6H7-x6-qdB"/>
+                        <outlet property="button2" destination="PBB-yl-vE4" id="Iq1-FJ-7ha"/>
+                        <outlet property="button3" destination="z1p-xt-Oez" id="8rz-uY-05t"/>
+                        <outlet property="button4" destination="snB-mu-P5P" id="AqF-t1-D2w"/>
+                        <outlet property="button5" destination="Ef3-Sz-QvX" id="9DN-2t-oGn"/>
+                        <outlet property="button6" destination="xpM-gS-Obd" id="fEl-xE-GBS"/>
+                        <outlet property="button7" destination="WYD-fk-HzN" id="322-xi-Mh5"/>
+                        <outlet property="button8" destination="yTd-Up-0Cf" id="2BI-dY-zdo"/>
+                        <outlet property="player1WinsLabel" destination="5X1-ka-Ogr" id="70M-8l-kEO"/>
+                        <outlet property="player2WinsLabel" destination="rE9-4b-FQu" id="GWu-UQ-RfI"/>
                         <outlet property="resetButton" destination="0KM-ku-MjY" id="qSg-Zj-2JQ"/>
-                        <outlet property="ticTacToeView" destination="GMP-9x-9Ke" id="Jck-89-Knn"/>
                         <outlet property="victoryLabel" destination="qgV-2O-mje" id="HbT-nh-Ngw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="c6o-4P-cgq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="113" y="9"/>
         </scene>

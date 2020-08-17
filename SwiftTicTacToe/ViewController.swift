@@ -10,11 +10,27 @@ import UIKit
 
 final class TicTacToeViewController: UIViewController {
     
-    @IBOutlet var ticTacToeView: UICollectionView!
     @IBOutlet var victoryLabel: UILabel!
     @IBOutlet var resetButton: UIButton!
+    @IBOutlet var button0: TicTacToeButton!
+    @IBOutlet var button1: TicTacToeButton!
+    @IBOutlet var button2: TicTacToeButton!
+    @IBOutlet var button3: TicTacToeButton!
+    @IBOutlet var button4: TicTacToeButton!
+    @IBOutlet var button5: TicTacToeButton!
+    @IBOutlet var button6: TicTacToeButton!
+    @IBOutlet var button7: TicTacToeButton!
+    @IBOutlet var button8: TicTacToeButton!
+    @IBOutlet var player1WinsLabel: UILabel!
+    @IBOutlet var player2WinsLabel: UILabel!
     
-    // Key: Square #, Value: Player #
+    private var allButtons: [TicTacToeButton] {
+        return [button0, button1, button2,
+                button3, button4, button5,
+                button6, button7, button8]
+    }
+    
+    /// Key: Square #, Value: Player #
     private var selectedSquares = [Int: Int]()
     private var isPlayerOneTurn = true
     private var player1Wins = 0
@@ -32,63 +48,39 @@ final class TicTacToeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ticTacToeView.delegate = self
-        ticTacToeView.dataSource = self
+        assignAllButtons()
     }
+    
     @IBAction func didTapReset(_ sender: UIButton) {
         victoryLabel.text = "Tic-Tac-Toe"
         resetButton.isHidden = true
         selectedSquares.removeAll()
         isPlayerOneTurn = true
-        ticTacToeView.visibleCells.compactMap{(cell) -> TicTacToeCell? in
-            let cell = cell as? TicTacToeCell
-            return cell
-        }.forEach{$0.reset()}
-        ticTacToeView.reloadData()
-    }
-}
-
-extension TicTacToeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalWidth = collectionView.frame.width
-        let totalHeight = collectionView.frame.height
-        let width = (totalWidth/3.9)
-        let height = (totalHeight/3.9)
-        return CGSize(width: width, height: height)
-    }
-}
-
-extension TicTacToeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        allButtons.forEach{$0.reset()}
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TicTacToeCell", for: indexPath) as? TicTacToeCell {
-            cell.squareNumber = indexPath.item
-            cell.didSelect = didSelect(squareNumber:with:)
-            return cell
-        } else {
-            return UICollectionViewCell()
+    private func assignAllButtons() {
+        var index = 0
+        for button in allButtons {
+            button.index = index
+            button.didSelect = didSelect(squareNumber:)
+            index += 1
         }
     }
+}
+
+extension TicTacToeViewController {
     
-    private func didSelect(squareNumber: Int, with button: UIButton) {
+    private func didSelect(squareNumber: Int) -> UIImage? {
         if self.isPlayerOneTurn {
-            button.setTitle("X", for: .normal)
-            //button.setBackgroundImage(UIImage(named: "X"), for: .normal)
             self.player(1, selected: squareNumber)
+            self.isPlayerOneTurn = !self.isPlayerOneTurn
+            return UIImage(named: "X")
         } else {
-            button.setTitle("O", for: .normal)
-            //button.setBackgroundImage(UIImage(named: "O"), for: .normal)
             self.player(2, selected: squareNumber)
+            self.isPlayerOneTurn = !self.isPlayerOneTurn
+            return UIImage(named: "O")
         }
-        self.isPlayerOneTurn = !self.isPlayerOneTurn
     }
     
     private func player(_ playerNumber: Int, selected squareNumber: Int) {
@@ -110,6 +102,8 @@ extension TicTacToeViewController: UICollectionViewDelegate, UICollectionViewDat
                     if count == 3 {
                         return true
                     }
+                } else {
+                    break
                 }
             }
         }
@@ -121,8 +115,10 @@ extension TicTacToeViewController: UICollectionViewDelegate, UICollectionViewDat
         resetButton.isHidden = false
         if playerNumber == 1 {
             player1Wins += 1
+            player1WinsLabel.text = "\(player1Wins)"
         } else {
             player2Wins += 1
+            player2WinsLabel.text = "\(player2Wins)"
         }
     }
     
